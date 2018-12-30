@@ -1,4 +1,4 @@
-# TCP-ZC-NSF
+# TCP-ZC-NFS
 Linux TCP zero-copy: NFS v4.2 performance evaluation. [Wiki](https://github.com/aafanasyev/TCP-ZC-NSF/wiki) of this repository contains all detailed implementations related to this research.
 
 This project focus on evaluating peformance of NFS after applying a TCP Zero-Copy receive [[1](https://kernelnewbies.org/Linux_4.18#Zero-copy_TCP_receive_API)] in kernel 4.18 and zero copy from user memory to sockets in 4.14 [[2](https://kernelnewbies.org/Linux_4.14#Zero-copy_from_user_memory_to_sockets)]. This makes zero-copy networking possible.
