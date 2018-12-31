@@ -63,7 +63,7 @@ do
         sleep 1
 #        echo "$i Read" >> "$KERNEL"-result.txt
 #        dd oflag=dsync if=$FILE of=/dev/null bs=$bsi 2>> $OUTPUT
-	rd=$(dd oflag=sync if=$FILE of=/dev/null bs=$bsi 2>&1)
+	rd=$(dd oflag=dsync if=$FILE of=/dev/null bs=$bsi 2>&1)
         rd=$(echo ${rd##*s,})
         rd=$(echo ${rd%B/s})
 	rd=$(echo ${rd^^})
