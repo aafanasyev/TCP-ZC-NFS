@@ -1,0 +1,17 @@
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+
+df = pd.read_csv(r'TCP-ZC-NSF/csv/4.19.11-041911-generic-NFS.csv', header='infer', usecols=['Blocksize', 'Write'])
+
+print(df)
+
+#df.boxplot(by=['Blocksize'])
+
+ax = df.boxplot(column=['Write'], by=['Blocksize'], showfliers=True)
+
+sns.pointplot(x='Blocksize', y='Write', data=df.groupby('Blocksize', as_index=False).mean(), ax=ax)
+
+plt.show()
+plt.savefig('output.png')

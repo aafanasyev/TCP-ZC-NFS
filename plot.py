@@ -19,7 +19,7 @@ import matplotlib.ticker as tck
 from matplotlib.ticker import FormatStrFormatter
 import numpy as np
 
-path_csv = 'csv/4.19.11-041911-generic-NFS.csv'
+path_csv = 'csv/4.10.17-041017-generic-NFS.csv'
 
 x_axis_groups = []
 y_axis_values = []
@@ -33,9 +33,9 @@ with open(path_csv, 'r', encoding='utf-8') as results:
             # group
             x_label = str(row[1][2])
             # values
-            y_label = str(row[1][4])
+            y_label = str(row[1][5])
         else:
-            csv_data.append((row[1][2], row[1][4]))
+            csv_data.append((row[1][2], row[1][5]))
 print ("Blocksizes by x axis: {}".format(x_label))
 print ("Values by y axis: {}".format(y_label))
 #print (csv_data)
@@ -140,8 +140,8 @@ mean = mlines.Line2D([], [], marker='D', color='green', markersize=4, label='Mea
 boxes = mlines.Line2D([], [], marker='s', markerfacecolor='white', markeredgecolor='blue', markersize=4, label='$_{lower/first} or ^{upper/third} quartiles}$', linestyle = 'None')
 meanstd = mlines.Line2D([], [], color='green', label='Standard deviation($σ$)', linestyle='-', linewidth=1, alpha=0.5)
 
-plt.title('Comparison of blocksize (bytes) and write speed (bytes/second) of NFSv4.2 protocol with TCP zero copy. \n 1000 rounds per blocksize', 
+plt.title('Comparison of blocksize (bytes) and read speed (bytes/second) \n of NFSv4.2 protocol with TCP zero copy. \n 1000 rounds per blocksize', 
             fontsize=8, fontweight='bold')
 plt.legend(handles=[median, mean, boxes, meanstd], fontsize=7)
 
-plt.savefig(str('4.19.11-write.png'), format='png', dpi=300)
+plt.savefig(str('4.10.17-read.png'), format='png', dpi=300)
